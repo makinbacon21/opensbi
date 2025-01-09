@@ -175,7 +175,7 @@ USE_LD_FLAG	=	-fuse-ld=bfd
 endif
 
 # Check whether the linker supports creating PIEs
-OPENSBI_LD_PIE := $(shell $(CC) $(CLANG_TARGET) $(RELAX_FLAG) $(USE_LD_FLAG) -fPIE -nostdlib -Wl,-pie -x c /dev/null -o /dev/null >/dev/null 2>&1 && echo y || echo n)
+OPENSBI_LD_PIE := $(shell $(CC) $(CLANG_TARGET) $(RELAX_FLAG) $(USE_LD_FLAG) -fPIE -nostdlib -x c /dev/null -o /dev/null >/dev/null 2>&1 && echo y || echo n)
 
 # Check whether the linker supports --exclude-libs
 OPENSBI_LD_EXCLUDE_LIBS := $(shell $(CC) $(CLANG_TARGET) $(RELAX_FLAG) $(USE_LD_FLAG) "-Wl,--exclude-libs,ALL" -x c /dev/null -o /dev/null >/dev/null 2>&1 && echo y || echo n)
